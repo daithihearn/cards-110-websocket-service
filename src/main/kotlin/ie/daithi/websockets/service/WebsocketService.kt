@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service
 @Service
 class WebsocketService(
     private val messageSender: SimpMessagingTemplate,
-    @Value("\${redis.topic}") private val topic: String
+    @Value("\${REDIS_TOPIC}") private val topic: String
 ) {
 
     fun send(wsMessage: WsMessage) {
-        logger.warn("Sending message: $wsMessage")
+        if (logger.isDebugEnabled) logger.debug("Sending message: $wsMessage")
         messageSender.convertAndSendToUser(wsMessage.recipient, topic, wsMessage.message)
     }
 

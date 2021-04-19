@@ -14,11 +14,12 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 class WebSocketConfig (
         @Value("#{'\${cors.whitelist}'.split(',')}")
         private val allowedOrigins: List<String>,
-        private val jwtDecoder: JwtDecoder
+        private val jwtDecoder: JwtDecoder,
+        @Value("\${REDIS_TOPIC}") private val topic: String
 ): WebSocketMessageBrokerConfigurer {
 
     override fun configureMessageBroker(config: MessageBrokerRegistry) {
-        config.enableSimpleBroker("/game")
+        config.enableSimpleBroker(topic)
         config.setApplicationDestinationPrefixes("/app")
     }
 

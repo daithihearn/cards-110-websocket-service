@@ -15,7 +15,7 @@ import javax.annotation.PostConstruct
 class SubscriberService(
     private val redisTemplate: ReactiveRedisOperations<String, WsMessage>,
     private val websocketService: WebsocketService,
-    @Value("\${redis.topic}") private val topic: String) {
+    @Value("\${REDIS_TOPIC}") private val topic: String) {
 
     @PostConstruct
     private fun init() {
