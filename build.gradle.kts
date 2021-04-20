@@ -38,11 +38,15 @@ repositories {
 	}
 }
 
-val versionFile = Properties()
-versionFile.load(FileInputStream(".env"))
+base {
+	archivesBaseName = "websocket-service"
+}
+
+//val versionFile = Properties()
+//versionFile.load(FileInputStream(".env"))
 
 group = "ie.daithi.websocket"
-version = "${versionFile.getProperty("WEBSOCKET_SERVICE_VERSION")}"
+//version = "${versionFile.getProperty("WEBSOCKET_SERVICE_VERSION")}"
 java.sourceCompatibility = JavaVersion.VERSION_14
 
 description = "Websocket Service"
@@ -96,9 +100,9 @@ tasks.withType<KotlinCompile> {
 }
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
-	jvmTarget = "1.8"
+	jvmTarget = "14"
 }
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {
-	jvmTarget = "1.8"
+	jvmTarget = "14"
 }
