@@ -46,7 +46,7 @@ base {
 
 group = "ie.daithi.websocket"
 //version = "${versionFile.getProperty("WEBSOCKET_SERVICE_VERSION")}"
-java.sourceCompatibility = JavaVersion.VERSION_14
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 description = "Websocket Service"
 
@@ -94,14 +94,6 @@ tasks.withType<Test> {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "14"
+		jvmTarget = "17"
 	}
-}
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-	jvmTarget = "14"
-}
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.kotlinOptions {
-	jvmTarget = "14"
 }
