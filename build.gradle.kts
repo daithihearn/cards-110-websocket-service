@@ -1,6 +1,4 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import java.io.FileInputStream
-import java.util.*
 
 buildscript {
 	val kotlinVersion = "1.6.10"
@@ -37,15 +35,7 @@ repositories {
 	}
 }
 
-base {
-	archivesBaseName = "websocket-service"
-}
-
-//val versionFile = Properties()
-//versionFile.load(FileInputStream(".env"))
-
 group = "ie.daithi.websocket"
-//version = "${versionFile.getProperty("WEBSOCKET_SERVICE_VERSION")}"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 description = "Websocket Service"
@@ -68,18 +58,18 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-websocket:$springBootVersion")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis:$springBootVersion")
 	implementation("org.springframework.boot:spring-boot-starter-security:$springBootVersion")
-	implementation("org.springframework.security:spring-security-oauth2-resource-server:5.3.3.RELEASE")
-	implementation("org.springframework.security:spring-security-oauth2-jose:5.3.3.RELEASE")
+	implementation("org.springframework.security:spring-security-oauth2-resource-server:5.5.1")
+	implementation("org.springframework.security:spring-security-oauth2-jose:5.5.1")
 
 
 	// Other
-	implementation("com.auth0:java-jwt:3.10.2")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.+")
+	implementation("com.auth0:java-jwt:3.18.2")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
 	// implementation("org.apache.commons:commons-text:1.8")
 
 	//Test
 	testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
-	testImplementation("io.mockk:mockk:1.10.2")
+	testImplementation("io.mockk:mockk:1.12.1")
 
 
 }
