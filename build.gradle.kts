@@ -58,18 +58,18 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-websocket:$springBootVersion")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis:$springBootVersion")
 	implementation("org.springframework.boot:spring-boot-starter-security:$springBootVersion")
-	implementation("org.springframework.security:spring-security-oauth2-resource-server:5.5.1")
-	implementation("org.springframework.security:spring-security-oauth2-jose:5.5.1")
+	implementation("org.springframework.security:spring-security-oauth2-resource-server:5.7.3")
+	implementation("org.springframework.security:spring-security-oauth2-jose:5.7.3")
 
 
 	// Other
-	implementation("com.auth0:java-jwt:3.19.3")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
+	implementation("com.auth0:java-jwt:4.2.1")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.0")
 	// implementation("org.apache.commons:commons-text:1.8")
 
 	//Test
 	testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
-	testImplementation("io.mockk:mockk:1.12.1")
+	testImplementation("io.mockk:mockk:1.13.2")
 
 
 }
