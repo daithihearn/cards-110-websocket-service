@@ -36,7 +36,7 @@ repositories {
 }
 
 group = "ie.daithi.websocket"
-java.sourceCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_19
 
 description = "Websocket Service"
 
