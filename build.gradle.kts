@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 buildscript {
 	val kotlinVersion = "1.6.10"
@@ -34,6 +35,8 @@ repositories {
 		dirs("libs")
 	}
 }
+
+version=File(".version").readText(Charsets.UTF_8)
 
 group = "ie.daithi.websocket"
 java.sourceCompatibility = JavaVersion.VERSION_19
@@ -86,4 +89,12 @@ tasks.withType<KotlinCompile> {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
 		jvmTarget = "17"
 	}
+}
+
+tasks.getByName<BootJar>("bootJar") {
+	enabled = true
+}
+
+tasks.getByName<Jar>("jar") {
+	enabled = false
 }
