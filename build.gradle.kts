@@ -2,22 +2,20 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 buildscript {
-	val kotlinVersion = "1.6.10"
-	val springBootVersion = "2.7.7"
 	repositories {
 		mavenLocal()
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
-		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin")
+		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.22")
 	}
 }
 
 plugins {
-    id("org.springframework.boot") version "2.7.7"
+    id("org.springframework.boot") version "3.0.5"
     id("maven-publish")
-    id("org.jetbrains.kotlin.jvm") version "1.6.10"
+	kotlin("jvm") version "1.7.22"
 	kotlin("plugin.spring") version "1.6.10"
 }
 
@@ -31,19 +29,14 @@ tasks.withType<JavaCompile> {
 repositories {
 	mavenLocal()
 	mavenCentral()
-	flatDir {
-		dirs("libs")
-	}
 }
 
 version=File(".version").readText(Charsets.UTF_8)
 
 group = "ie.daithi.websocket"
-java.sourceCompatibility = JavaVersion.VERSION_19
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 description = "Websocket Service"
-
-val springBootVersion: String = "2.7.7"
 
 dependencies {
 
@@ -52,27 +45,28 @@ dependencies {
 	// External Dependencies
 
 	// Kotlin dependencies
-	implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.10")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.10")
+	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib")
 
 	// Spring dependencies
-	implementation("org.springframework.boot:spring-boot-starter:$springBootVersion")
-	implementation("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
-	implementation("org.springframework.boot:spring-boot-starter-websocket:$springBootVersion")
-	implementation("org.springframework.boot:spring-boot-starter-data-redis:$springBootVersion")
-	implementation("org.springframework.boot:spring-boot-starter-security:$springBootVersion")
-	implementation("org.springframework.security:spring-security-oauth2-resource-server:5.7.3")
-	implementation("org.springframework.security:spring-security-oauth2-jose:5.7.3")
+	implementation("org.springframework.boot:spring-boot-starter")
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-websocket")
+	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.security:spring-security-oauth2-resource-server:6.0.2")
+	implementation("org.springframework.security:spring-security-oauth2-jose:6.0.2")
 
 
 	// Other
-	implementation("com.auth0:java-jwt:4.2.1")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.0")
+	implementation("com.auth0:java-jwt:4.3.0")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2")
+	implementation("javax.annotation:javax.annotation-api:1.3.2")
 	// implementation("org.apache.commons:commons-text:1.8")
 
 	//Test
-	testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
-	testImplementation("io.mockk:mockk:1.13.2")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("io.mockk:mockk:1.13.4")
 
 
 }

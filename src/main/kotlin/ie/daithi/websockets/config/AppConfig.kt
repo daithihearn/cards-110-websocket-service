@@ -20,7 +20,6 @@ import org.springframework.data.redis.serializer.RedisSerializer
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory
 
 @Configuration
-@ComponentScan(basePackages = ["ie.daithi.websockets"])
 class AppConfig(
     @Value("\${REDIS_URL}")
     private val redisUriString: String,
