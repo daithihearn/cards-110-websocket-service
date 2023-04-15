@@ -1,0 +1,40 @@
+server:
+  address: 0.0.0.0
+  port: ${PORT}
+  error.include-message: always
+  ssl.trusted-certificates: /etc/ssl/cert.pem
+
+
+spring:
+  data:
+    redis.repositories.enabled: ${REDIS_REPO_ENABLED:false}
+  security:
+    oauth2.resourceserver.jwt.issuer-uri: ${AUTH0_CLIENT_ID}
+  jackson:
+    default-property-inclusion: non_null
+
+
+# Security
+cors.whitelist: ${CORS_WHITELIST}
+
+auth0:
+  audience: ${AUTH0_AUDIENCE}
+  secret: ${AUTH0_SECRET}
+
+
+# Logging
+logging:
+  level:
+    org.springframework.web: WARN
+    ie.daithi: ${LOGGING_LEVEL:INFO}
+    # org.springframework.data.mongodb: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: ./logs/application.log
+
+management:
+  health:
+    redis:
+      enabled: false

@@ -1,4 +1,4 @@
-FROM openjdk:19 AS builder
+FROM openjdk:17 AS builder
 
 WORKDIR /opt/app
 
@@ -15,7 +15,7 @@ COPY ./src ./src
 
 RUN ./gradlew build publishToMavenLocal
 
-FROM openjdk:19
+FROM openjdk:17
 
 WORKDIR /opt/app
 
