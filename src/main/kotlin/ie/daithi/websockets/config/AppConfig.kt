@@ -2,10 +2,8 @@ package ie.daithi.websockets.config
 
 import ie.daithi.websockets.model.WsMessage
 import io.lettuce.core.RedisURI
-import org.apache.logging.log4j.LogManager
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 
 import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory
@@ -59,7 +57,4 @@ class AppConfig(
         return ReactiveRedisTemplate(reactiveRedisConnectionFactory, serializationContext)
     }
 
-    companion object {
-        private val logger = LogManager.getLogger(AppConfig::class.java)
-    }
 }
