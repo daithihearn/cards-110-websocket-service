@@ -54,6 +54,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-websocket")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
 	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.security:spring-security-oauth2-resource-server:6.0.2")
 	implementation("org.springframework.security:spring-security-oauth2-jose:6.0.2")
 

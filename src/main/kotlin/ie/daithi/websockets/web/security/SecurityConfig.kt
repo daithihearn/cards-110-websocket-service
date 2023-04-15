@@ -25,6 +25,7 @@ class SecurityConfig(
     fun filterChain(http: HttpSecurity): SecurityFilterChain? {
         http.cors().and().authorizeHttpRequests()
             .requestMatchers(HttpMethod.GET, "/websocket/**").permitAll()
+            .requestMatchers(HttpMethod.GET, "/actuator/**").permitAll()
             .anyRequest().authenticated()
             .and()
             .oauth2ResourceServer().jwt()
